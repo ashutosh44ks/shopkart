@@ -1,38 +1,415 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background: #1a1a1a;
+  color: #626262;
+  padding: 0.5rem 4rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  font-size: 0.69rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background-color: #161615;
+  background-image: url("./assets/bg-banner.png");
+  color: white;
+  padding: 1rem 4rem;
+}
+.navbar h1 {
+  font-size: 2.5rem;
+  line-height: 3.75rem;
+  font-weight: 275;
+  font-family: "Poppins", sans-serif;
+}
+.navbar .cart {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.navbar img {
+  position: relative;
+  top: -0.25rem;
+}
+.navbar .menu {
+  font-size: 1.125rem;
+  line-height: 1.3rem;
+  font-weight: 800;
+  font-family: "Work Sans", sans-serif;
+  text-transform: uppercase;
+}
+.navbar .dropdown-container {
+  width: 10rem;
+  border: solid 1px black;
+}
+.navbar .dropdown-container .dropdown {
+  display: none;
+}
+.navbar .dropdown-container:hover .dropdown {
+  position: absolute;
+  display: block;
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+  width: 10rem;
+  border: solid 1px white;
+  z-index: 4;
+  font-weight: 300;
+  font-size: 0.88rem;
+  line-height: 1rem;
+}
+.navbar .dropdown-container:hover {
+  border: solid 1px white;
+}
+.navbar .dropdown-container:hover .dropdown div {
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.banner {
+  width: 100vw;
+  height: calc(100vh - 10rem);
+  background-color: #161615;
+  background-image: url("./assets/bg-banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.banner .brand-face,
+.banner .brand-star {
+  transform: scale(0.75);
+}
+.banner .brand-face {
+  position: absolute;
+  right: 2.5rem;
+  /* top: 5.5rem; */
+  bottom: -5.5rem;
+  z-index: 3;
+  overflow: hidden;
+}
+.banner .brand-star {
+  position: absolute;
+  top: 5rem;
+  right: 0rem;
+  z-index: 2;
+  min-width: 11rem;
+  min-height: 19rem;
+  overflow: hidden;
+}
+.banner .brand-price {
+  position: absolute;
+  bottom: 7rem;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+  line-height: 1rem;
+  z-index: 2;
+  color: #161615;
+  font-family: "Work Sans", sans-serif;
+}
+.banner .orange-box {
+  position: absolute;
+  right: 0;
+  top: 50vh;
+  width: 75%;
+  height: 18rem;
+  background-color: #f07e15;
+  opacity: 0.8;
+  z-index: 1;
+}
+.banner h1 {
+  font-size: 8.4rem;
+  line-height: 6.375rem;
+  font-weight: 800;
+  z-index: 2;
+  position: relative;
+  font-family: "Syne", sans-serif;
+}
+.banner h1.outline-only {
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white;
+  text-shadow: none;
+}
+.banner .banner-end {
+  position: absolute;
+  bottom: 0rem;
+  font-family: "Work Sans", sans-serif;
+}
+.banner .banner-end img {
+  position: relative;
+  transform: rotate(180deg);
+  z-index: 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.new-prods {
+  min-height: 100vh;
+}
+.new-prods h2 {
+  font-size: 5.525rem;
+  line-height: 6.75rem;
+  font-weight: 600;
+  font-family: "Syne", sans-serif;
+}
+.new-prods img.separator {
+  position: relative;
+  top: -0.25rem;
+}
+.new-prods img.arrow-prev {
+  transform: rotate(180deg);
+}
+.new-prods img.arrow-prev,
+.new-prods img.arrow-next {
+  cursor: pointer;
+  padding: 1rem;
+}
+.new-prods .categories {
+  width: 22vw;
+  min-width: 15rem;
+  position: absolute;
+  left: 4rem;
+}
+.new-prods .categories li {
+  margin: 1.5rem 0;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  font-size: 1.125rem;
+  line-height: 1.32rem;
+  font-family: "Work Sans", sans-serif;
+  text-transform: capitalize;
+}
+.new-prods .categories li.active {
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.95rem;
+  font-family: "Syne", sans-serif;
+}
+.new-prods .items {
+  margin-left: 30vw;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.625rem;
+  overflow: auto;
+}
+.new-prods .card {
+  width: 15rem;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+.new-prods .card:hover {
+  transform: scale(1.025);
+}
+.new-prods .card img {
+  height: 38vh;
+  max-height: 15rem;
+  aspect-ratio: 310/320;
+}
+.new-prods .card .external-link-img {
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0.5rem;
+}
+.new-prods .card h4 {
+  font-size: 1.625rem;
+  line-height: 1.94rem;
+  font-weight: 600;
+  font-family: "Syne", sans-serif;
+  text-transform: uppercase;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.new-prods .card p {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  color: #16161580;
+  padding: 0.25rem 0;
+  font-family: "Work Sans", sans-serif;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.newsletter {
+  color: #ffffff80;
+  background-image: url("./assets/bg-newsletter.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 3.5rem 4rem;
+}
+.newsletter h4 {
+  font-weight: 600;
+  font-size: 1.625rem;
+  line-height: 1.95rem;
+  font-family: "Syne", sans-serif;
+}
+.newsletter p,
+input {
+  font-size: 1.125rem;
+  line-height: 1.32rem;
+  font-family: "Work Sans", sans-serif;
+}
+.newsletter input {
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+  border-bottom: solid 1px #ffffff80;
+  width: 35vw;
+}
+.newsletter input::placeholder {
+  color: #ffffff80;
+}
+.newsletter input:focus {
+  outline: none;
+}
+.newsletter h1 {
+  font-size: 8.43rem;
+  line-height: 6.41rem;
+  font-weight: 800;
+  color: white;
+  font-family: "Syne", sans-serif;
+}
+.newsletter button {
+  position: absolute;
+  right: 4rem;
+  border-radius: 100%;
+  border: solid 2px #f07e15;
+  height: 10rem;
+  width: 10rem;
+  font-size: 1.625rem;
+  line-height: 1rem;
+  color: #f07e15;
+  font-family: "Work Sans", sans-serif;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.show-on-mobile {
+  display: none;
+}
+@media screen and (max-width: 540px) {
+  header {
+    padding: 0.5rem 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .show-on-mobile {
+    display: block;
+  }
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .navbar .menu.show-on-mobile {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 7rem);
+    z-index: 11;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .banner {
+    height: calc(100vh - 8rem);
+  }
+  .banner .brand-star {
+    right: -2rem;
+    top: 7rem;
+  }
+  .banner .brand-face {
+    right: 0rem;
+    transform: scale(1);
+    bottom: 0rem;
+  }
+  .banner h1 {
+    font-size: 3.4rem;
+    line-height: 4.3rem;
+  }
+  .banner .banner-text {
+    position: absolute;
+    bottom: 5rem;
+    z-index: 4;
+  }
+  .banner .banner-end {
+    z-index: 3;
+  }
+  .new-prods {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  .new-prods h2 {
+    font-size: 2.5rem;
+    line-height: 3.75rem;
+    font-weight: 600;
+    font-family: "Syne", sans-serif;
+  }
+  .new-prods .categories {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    min-width: 100%;
+    position: inherit;
+    padding: 0.5rem 2.5rem;
+  }
+  .new-prods .categories li {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    font-family: "Work Sans", sans-serif;
+    text-transform: capitalize;
+  }
+  .new-prods .categories li.active {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.31rem;
+    font-family: "Syne", sans-serif;
+  }
+  .new-prods .items {
+    margin-left: 0;
+  }
+  .newsletter input {
+    width: 100%;
+  }
+  .newsletter h1 {
+    font-size: 3.43rem;
+    line-height: 2.31rem;
+    font-weight: 800;
+    color: white;
+    font-family: "Syne", sans-serif;
+  }
+  .newsletter button {
+    right: 4rem;
+    height: 5rem;
+    width: 5rem;
+    font-size: 0.875rem;
+    line-height: 0.6rem;
+    color: #f07e15;
+    font-family: "Work Sans", sans-serif;
   }
 }
