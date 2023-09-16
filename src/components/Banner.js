@@ -1,6 +1,6 @@
 import React from "react";
 import brandStar from "../assets/brand-star.svg";
-import brandFace from "../assets/brand-face.svg";
+import brandFace from "../assets/brand-face.png";
 import { ReactComponent as ExtLink } from "../assets/external-link.svg";
 import navbarSeparatorIcon from "../assets/navbar-separator.svg";
 
