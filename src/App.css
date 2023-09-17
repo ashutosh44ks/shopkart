@@ -393,6 +393,9 @@ footer {
   .new-prods .items {
     margin-left: 0;
   }
+  .newsletter {
+    padding: 2rem 1rem;
+  }
   .newsletter input {
     width: 100%;
   }
